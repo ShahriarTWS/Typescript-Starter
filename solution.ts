@@ -13,8 +13,6 @@ const formatValue = <T>(value: T) => {
 
 
 
-
-
 const getLength = <T>(value: T) => {
     if (typeof value === 'string') {
         return value.length;
@@ -24,8 +22,6 @@ const getLength = <T>(value: T) => {
         console.log("Input must be a string or an array.")
     }
 }
-
-
 
 
 
@@ -45,15 +41,8 @@ class Person {
 
 
 
-
-
-type Books = {
-    title: string;
-    rating: number
-}
-type FilterByRating = (book: Books[]) => Books[]
-const filterByRating: FilterByRating = (book: Books[]) => {
-    const filterBook = book.filter((singleBook) => {
+const filterByRating = (books: { title: string; rating: number }[]) => {
+    const filterBook = books.filter((singleBook) => {
         return singleBook.rating >= 4.0 && singleBook.rating <= 5.0;
     })
     return filterBook;
@@ -62,19 +51,10 @@ const filterByRating: FilterByRating = (book: Books[]) => {
 
 
 
-
-
-type ActiveUser = {
-    id: number;
-    name: string;
-    email: string;
-    isActive: boolean
-}
-type FilterActiveUsers = (users: ActiveUser[]) => ActiveUser[]
-const filterActiveUsers: FilterActiveUsers = (users: ActiveUser[]) => {
-    return users.filter(user => user.isActive);
-}
-
+const filterActiveUsers =
+    (users: { id: number; name: string; email: string; isActive: boolean }[]) => {
+        return users.filter(user => user.isActive);
+    };
 
 
 
@@ -93,10 +73,7 @@ const printBookDetails: PrintBookDetails = (bookDetails: Book) => {
 
 
 
-
-
-type GetUniqueValues = <T>(array1: T[], array2: T[]) => T[]
-const getUniqueValues: GetUniqueValues = <T>(array1: T[], array2: T[]) => {
+const getUniqueValues = <T>(array1: T[], array2: T[]) => {
     const result: T[] = [];
 
     const add = (value: T) => {
@@ -129,15 +106,7 @@ const getUniqueValues: GetUniqueValues = <T>(array1: T[], array2: T[]) => {
 
 
 
-
-type Product = {
-    name: string;
-    price: number;
-    quantity: number;
-    discount?: number;
-};
-type CalculateTotalPrice = (products: Product[]) => number
-const calculateTotalPrice: CalculateTotalPrice = (products: Product[]) => {
+const calculateTotalPrice = (products: { name: string; price: number; quantity: number; discount?: number; }[]) => {
     if (products.length === 0) {
         return 0;
     }
