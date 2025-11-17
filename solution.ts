@@ -10,9 +10,10 @@ const formatValue = <T>(value: T) => {
     }
 }
 
-// console.log(formatValue('hello'));
-// console.log(formatValue(5));
-// console.log(formatValue(true));
+
+
+
+
 
 const getLength = <T>(value: T) => {
     if (typeof value === 'string') {
@@ -24,8 +25,7 @@ const getLength = <T>(value: T) => {
     }
 }
 
-// console.log(getLength('typescript'));
-// console.log(getLength([10, 20, 30, 40]));
+
 
 
 
@@ -42,11 +42,8 @@ class Person {
 
 }
 
-// const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
 
-// const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
+
 
 
 
@@ -54,9 +51,7 @@ type Books = {
     title: string;
     rating: number
 }
-
 type FilterByRating = (book: Books[]) => Books[]
-
 const filterByRating: FilterByRating = (book: Books[]) => {
     const filterBook = book.filter((singleBook) => {
         return singleBook.rating >= 4.0 && singleBook.rating <= 5.0;
@@ -64,14 +59,9 @@ const filterByRating: FilterByRating = (book: Books[]) => {
     return filterBook;
 }
 
-// const books = [
-//     { title: 'Book A', rating: 4.5 },
-//     { title: 'Book B', rating: 3.2 },
-//     { title: 'Book C', rating: 6.0 },
-//     { title: 'Book C', rating: 5.0 },
-// ];
 
-// console.log(filterByRating(books));
+
+
 
 
 type ActiveUser = {
@@ -80,21 +70,13 @@ type ActiveUser = {
     email: string;
     isActive: boolean
 }
-
 type FilterActiveUsers = (users: ActiveUser[]) => ActiveUser[]
-
 const filterActiveUsers: FilterActiveUsers = (users: ActiveUser[]) => {
     return users.filter(user => user.isActive);
 }
 
-// const users = [
-//     { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-//     { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-//     { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-// ];
 
-// console.log(filterActiveUsers(users));
-// console.log(users)
+
 
 
 interface Book {
@@ -103,27 +85,17 @@ interface Book {
     publishedYear: number;
     isAvailable: boolean
 }
-
-
 type PrintBookDetails = (boolDetails: Book) => void
-
 const printBookDetails: PrintBookDetails = (bookDetails: Book) => {
     console.log(`Title: ${bookDetails.title}, Author: ${bookDetails.author}, Published: ${bookDetails.publishedYear}, Available: ${bookDetails.isAvailable ? "Yes" : "No"}`)
 }
 
-// const myBook: Book = {
-//     title: 'The Great Gatsby',
-//     author: 'F. Scott Fitzgerald',
-//     publishedYear: 1925,
-//     isAvailable: true,
-// };
 
-// printBookDetails(myBook);
+
 
 
 
 type GetUniqueValues = <T>(array1: T[], array2: T[]) => T[]
-
 const getUniqueValues: GetUniqueValues = <T>(array1: T[], array2: T[]) => {
     const result: T[] = [];
 
@@ -153,9 +125,9 @@ const getUniqueValues: GetUniqueValues = <T>(array1: T[], array2: T[]) => {
 }
 
 
-// const array1 = [1, 2, 3, 4, 5];
-// const array2 = [3, 4, 5, 6, 7];
-// console.log(getUniqueValues(array1, array2));
+
+
+
 
 
 type Product = {
@@ -164,9 +136,7 @@ type Product = {
     quantity: number;
     discount?: number;
 };
-
 type CalculateTotalPrice = (products: Product[]) => number
-
 const calculateTotalPrice: CalculateTotalPrice = (products: Product[]) => {
     if (products.length === 0) {
         return 0;
@@ -180,19 +150,3 @@ const calculateTotalPrice: CalculateTotalPrice = (products: Product[]) => {
         return totalPrice;
     }).reduce((sum, value) => sum + value, 0)
 }
-
-// const products = [
-//     { name: 'Pen', price: 10, quantity: 2 },
-//     { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
-//     { name: 'Bag', price: 50, quantity: 1, discount: 20 },
-// ];
-
-// console.log(calculateTotalPrice(products));
-
-// const products = [
-//     { name: 'Pen', price: 10, quantity: 2 },
-//     { name: 'Notebook', price: 25, quantity: 3 },
-//     { name: 'Bag', price: 50, quantity: 1 },
-// ];
-
-// console.log(calculateTotalPrice(products));
